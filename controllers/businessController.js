@@ -35,7 +35,7 @@ const searchBusinesses = async (req, res) => {
 
   try {
     let filterCriteria = {};
-    
+
     // Handle the filter based on address, name, or category
     switch (filter) {
       case "address":
@@ -48,7 +48,11 @@ const searchBusinesses = async (req, res) => {
         filterCriteria.category = new RegExp(query, "i");
         break;
       default:
-        return res.status(400).json({ message: "Invalid filter. Use 'address', 'name', or 'category'." });
+        return res
+          .status(400)
+          .json({
+            message: "Invalid filter. Use 'address', 'name', or 'category'.",
+          });
     }
 
     console.log("Primary filterCriteria:", filterCriteria);

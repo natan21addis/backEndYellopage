@@ -5,6 +5,17 @@ const userRoutes = require('./routes/userRoutes');
 const businessRoutes = require('./routes/businessRoutes');
 const reviewRoutes = require('./routes/reviewRoutes');
 const app = express();
+const cors = require("cors");
+
+
+app.use(cors());
+app.use(
+   cors({
+     origin: "http://localhost:3000", // Replace with your frontend origin
+     methods: "GET,POST,PUT,DELETE",
+     allowedHeaders: "Content-Type,Authorization",
+   })
+ );
 
 dotenv.config();
 
